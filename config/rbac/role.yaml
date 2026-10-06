@@ -1,0 +1,197 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - services
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods/status
+  - services/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - deployments/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - batch
+  resources:
+  - jobs/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - kubeflow.org
+  resources:
+  - mpijobs
+  - pytorchjobs
+  - tfjobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - kubeflow.org
+  resources:
+  - mpijobs/status
+  - pytorchjobs/status
+  - tfjobs/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - kubernetes.dask.org
+  resources:
+  - daskclusters
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - kubernetes.dask.org
+  resources:
+  - daskclusters/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - networking.istio.io
+  resources:
+  - destinationrules
+  - virtualservices
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - networking.istio.io
+  resources:
+  - destinationrules/status
+  - virtualservices/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - polyaxon.com
+  resources:
+  - clusters
+  - jobs
+  - kfjobs
+  - services
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - polyaxon.com
+  resources:
+  - clusters/finalizers
+  - jobs/finalizers
+  - kfjobs/finalizers
+  - services/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - polyaxon.com
+  resources:
+  - clusters/status
+  - jobs/status
+  - kfjobs/status
+  - services/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - ray.io
+  resources:
+  - rayclusters
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ray.io
+  resources:
+  - rayclusters/status
+  verbs:
+  - get
+  - patch
+  - update
